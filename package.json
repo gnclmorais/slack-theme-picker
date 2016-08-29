@@ -1,0 +1,36 @@
+{
+  "name": "SCSSfolding",
+  "version": "0.2.0",
+  "description": "Simple boilerplate project to jumpstart SCSS/Sass experiments.",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "./bin/build",
+    "watch-css": "./bin/watch",
+    "clean-css": "./bin/clean",
+    "minify-css": "./bin/minify",
+    "test": "echo \"Sorry, no tests here.\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gnclmorais/scssfolding.git"
+  },
+  "keywords": [
+    "scss",
+    "sass",
+    "boilerplate",
+    "scafolding"
+  ],
+  "author": "Gonçalo Morais <gnclmorais@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gnclmorais/scssfolding/issues"
+  },
+  "homepage": "https://github.com/gnclmorais/scssfolding",
+  "devDependencies": {
+    "browser-sync": "^2.10.1",
+    "clean-css": "^3.4.9",
+    "node-sass": "^3.3.3",
+    "nodemon": "^1.7.1"
+  },
+  "dependencies": {}
+}

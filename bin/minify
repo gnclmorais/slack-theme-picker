@@ -1,0 +1,1 @@
+node_modules/clean-css/bin/cleancss --s0 -o public/css/main.min.css public/css/main.css

@@ -1,0 +1,2 @@
+node_modules/nodemon/bin/nodemon.js -e scss -x 'npm run build-css' &
+node_modules/browser-sync/bin/browser-sync.js start --server --files 'public/css/*.css, index.html'
