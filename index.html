@@ -7,28 +7,31 @@
   <link rel="stylesheet" href="public/css/main.css">
 </head>
 <body>
-  <div class="sidebar">
-    <header class="sidebar__header">
+  <div class="sidebar" :style="sidebar">
+    <header class="sidebar__header" :style="header" @mouseenter="headerEnter" @mouseleave="headerLeave">
       <div class="sidebar__team-name">MustHash</div>
-      <div class="sidebar__team-user">Gonçalo</div>
+      <div class="sidebar__team-user">
+        <span class="sidebar__user-status" :style="status">•</span>
+        Gonçalo
+      </div>
     </header>
 
     <section class="sidebar__section sidebar__section--channels">
       <header class="sidebar__section-header">
         Channels
         <span class="sidebar__section-header-counter">(2)</span>
-        <button class="sidebar__new-button"></button>
+        <button class="sidebar__new-button" v-bind:style="{ color: slackTextColor }"></button>
       </header>
       <ul>
-        <li class="sidebar__list-item sidebar__channel">
+        <li class="sidebar__list-item sidebar__channel" :style="item" @mouseenter="itemEnter" @mouseleave="itemLeave">
           <a class="sidebar__list-link" href="">
             <span>home</span>
           </a>
         </li>
-        <li class="sidebar__list-item sidebar__list-item--mention sidebar__channel">
+        <li class="sidebar__list-item sidebar__list-item--mention sidebar__channel" :style="item" @mouseenter="itemEnter" @mouseleave="itemLeave">
           <a class="sidebar__list-link" href="">time</a>
         </li>
-        <li class="sidebar__list-item sidebar__channel">
+        <li class="sidebar__list-item sidebar__channel" :style="item" @mouseenter="itemEnter" @mouseleave="itemLeave">
           <a class="sidebar__list-link" href="">about</a>
         </li>
       </ul>
@@ -38,21 +41,25 @@
       <header class="sidebar__section-header">
         Direct messages
         <span class="sidebar__section-header-counter">(2)</span>
-        <button class="sidebar__new-button"></button>
+        <button class="sidebar__new-button" v-bind:style="{ color: slackTextColor }"></button>
       </header>
       <ul>
-        <li class="sidebar__list-item sidebar__list-item--slackbot">
+        <li class="sidebar__list-item sidebar__list-item--slackbot" :style="item" @mouseenter="itemEnter" @mouseleave="itemLeave">
           <a class="sidebar__list-link" href="">slackbot</a>
         </li>
-        <li class="sidebar__list-item sidebar__list-item--dm">
+        <li class="sidebar__list-item sidebar__list-item--dm" :style="item" @mouseenter="itemEnter" @mouseleave="itemLeave">
           <a class="sidebar__list-link" href="">Gonçalo</a>
         </li>
-        <li class="sidebar__list-item sidebar__list-item--invite">
+        <li class="sidebar__list-item sidebar__list-item--invite" :style="item" @mouseenter="itemEnter" @mouseleave="itemLeave">
           <a class="sidebar__list-link" href="">
             <strong>Invite people</strong>
           </a>
         </li>
       </ul>
-  </section>
+    </section>
+  </div>
+
+  <script type="text/javascript" src="https://npmcdn.com/vue/dist/vue.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
