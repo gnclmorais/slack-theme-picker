@@ -1,3 +1,5 @@
+Vue.config.debug = true;
+
 var defaultProps = {
   hex: '#194d33',
   hsl: {
@@ -21,7 +23,41 @@ var defaultProps = {
   a: 1,
 };
 
-new Vue({
+
+/**
+ * Picker component.
+ */
+Vue.component('colour-selector', {
+  template: '<div class="colour-selector">' +
+    '<input type="text" @focus="onFocus" @blur="onBlur">' +
+    '<div v-show.sync="isFocused">' +
+      '<chrome-picker :colors.sync="defaults"></chrome-picker>' +
+    '</div>' +
+  '</div>',
+
+  data: function () {
+    return {
+      isFocused: false,
+    };
+  },
+
+  props: ['defaults'],
+
+  components: {
+    'chrome-picker': VueColor.Chrome,
+  },
+
+  methods: {
+    onFocus: function () { this.isFocused = true;  },
+    onBlur:  function () { this.isFocused = false; },
+  },
+});
+
+
+/**
+ * Main app.
+ */
+vm = new Vue({
   el: '.app',
 
   data: function () {
@@ -38,9 +74,5 @@ new Vue({
       },
       defaults: defaultProps,
     };
-  },
-
-  components: {
-    'chrome-picker': VueColor.Chrome,
   },
 });

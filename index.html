@@ -93,10 +93,8 @@
 
   <div class="content">
     <div class="colour-selector-wrapper">
-      <div class="colour-selector" v-for="colour in colours">
-        <input type="text" v-model="colour">
-        <chrome-picker :colors.sync="defaults"></chrome-picker>
-      </div>
+      <colour-selector v-for="colour in colours" :defaults.sync="defaults">
+      </colour-selector>
     </div>
   </div>
 
