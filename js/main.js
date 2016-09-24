@@ -29,7 +29,7 @@ var defaultProps = {
  */
 Vue.component('colour-selector', {
   template: '<div class="colour-selector">' +
-    '<input type="text" @focus="onFocus" @blur="onBlur">' +
+    '<input type="text" :value="defaults.hex" @focus="onFocus" @blur="onBlur">' +
     '<div v-show.sync="isFocused">' +
       '<chrome-picker :colors.sync="defaults"></chrome-picker>' +
     '</div>' +
