@@ -6,7 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
   <link rel="stylesheet" href="public/css/main.css">
 </head>
-<body>
+<body class="app">
   <div class="sidebar" :style="sidebar">
     <style>
       .sidebar { background: {{ slackColumnBg }}; }
@@ -15,7 +15,9 @@
 
       .sidebar__list-item       { color: {{ slackTextColor }}; }
       .sidebar__list-item:hover { background: {{ slackHoverItem }}; }
-      .sidebar__list-item--active {
+      .sidebar__list-item--active,
+      .sidebar__list-item--active:hover {
+        opacity: 1;
         color: {{ slackActiveItemText }};
         background: {{ slackActiveItem }};
       }
@@ -51,7 +53,7 @@
         <button class="sidebar__new-button" v-bind:style="{ color: slackTextColor }"></button>
       </header>
       <ul>
-        <li class="sidebar__list-item sidebar__channel">
+        <li class="sidebar__list-item sidebar__list-item--active sidebar__channel">
           <a class="sidebar__list-link" href="">
             <span>home</span>
           </a>
@@ -89,7 +91,14 @@
     </section>
   </div>
 
+  <div class="content">
+    <div class="colour-inputs">
+      <chrome-picker :colors.sync="colors"></chrome-picker>
+    </div>
+  </div>
+
   <script type="text/javascript" src="https://npmcdn.com/vue/dist/vue.min.js"></script>
+  <script type="text/javascript" src="js/vue-color.min.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
