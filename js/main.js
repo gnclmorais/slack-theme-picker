@@ -26,15 +26,17 @@ new Vue({
 
   data: function () {
     return {
-      slackColumnBg:       'salmon',
-      slackMenuBgHover:    'tomato',
-      slackActiveItem:     'white',
-      slackActiveItemText: 'black',
-      slackHoverItem:      'red',
-      slackTextColor:      'black',
-      slackActivePresence: 'green',
-      slackMentionBadge:   'rebeccapurple',
-      colors: defaultProps,
+      colours: {
+        slackColumnBg:       'salmon',
+        slackMenuBgHover:    'tomato',
+        slackActiveItem:     'white',
+        slackActiveItemText: 'black',
+        slackHoverItem:      'red',
+        slackTextColor:      'black',
+        slackActivePresence: 'green',
+        slackMentionBadge:   'rebeccapurple',
+      },
+      defaults: defaultProps,
     };
   },
 

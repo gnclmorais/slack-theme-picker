@@ -9,26 +9,26 @@
 <body class="app">
   <div class="sidebar" :style="sidebar">
     <style>
-      .sidebar { background: {{ slackColumnBg }}; }
+      .sidebar { background: {{ colours.slackColumnBg }}; }
 
-      .sidebar__header:hover { background: {{ slackMenuBgHover }}; }
+      .sidebar__header:hover { background: {{ colours.slackMenuBgHover }}; }
 
-      .sidebar__list-item       { color: {{ slackTextColor }}; }
-      .sidebar__list-item:hover { background: {{ slackHoverItem }}; }
+      .sidebar__list-item       { color: {{ colours.slackTextColor }}; }
+      .sidebar__list-item:hover { background: {{ colours.slackHoverItem }}; }
       .sidebar__list-item--active,
       .sidebar__list-item--active:hover {
         opacity: 1;
-        color: {{ slackActiveItemText }};
-        background: {{ slackActiveItem }};
+        color: {{ colours.slackActiveItemText }};
+        background: {{ colours.slackActiveItem }};
       }
 
       .sidebar__list-item--online::before {
-        color: {{ slackActivePresence }};
+        color: {{ colours.slackActivePresence }};
       }
 
       .sidebar__list-item--mention::after {
         content: '2';
-        background: {{ slackMentionBadge }};
+        background: {{ colours.slackMentionBadge }};
         position: absolute;
         top: 2px;
         right: 0;
@@ -92,8 +92,11 @@
   </div>
 
   <div class="content">
-    <div class="colour-inputs">
-      <chrome-picker :colors.sync="colors"></chrome-picker>
+    <div class="colour-selector-wrapper">
+      <div class="colour-selector" v-for="colour in colours">
+        <input type="text" v-model="colour">
+        <chrome-picker :colors.sync="defaults"></chrome-picker>
+      </div>
     </div>
   </div>
 
